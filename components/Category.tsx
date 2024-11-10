@@ -1,19 +1,22 @@
-"use client" ;  
-import Link from 'next/link';
+"use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react'
+import React, { useContext } from 'react';
+import { Button } from './ui/button';
+import { CategoryContext } from '@/context/CtegoryContext';
 
-const Category = ({cat}:{cat:any}) => {
-
-    // todo : imp
+const Category = ({ cat }: { cat: any }) => {
+  const { categoryId, changeCategory } = useContext(CategoryContext);
+  
   return (
     <li>
-      <Link href={`/category/${cat.slug}`}>
-       {cat.title.toUpperCase()}
-      </Link>
+      <Button 
+        onClick={() => changeCategory(cat.$id)}
+        className={cat.$id === categoryId ? 'bg-blue-500' : 'bg-blue-300'}
+      >
+        {cat.title.toUpperCase()}
+      </Button>
     </li>
+  );
+};
 
-  )
-}
-
-export default Category
+export default Category;
