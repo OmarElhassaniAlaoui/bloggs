@@ -1,9 +1,18 @@
+"use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Category from "./Category";
+import { CategoryContext } from "@/context/CtegoryContext";
 
 const Categories = ({ categories }: { categories: any }) => {
+  const {changeCategory} = useContext(CategoryContext); 
+
+useEffect(() => {
+  changeCategory(categories[0].$id);
+}, [categories, changeCategory]); 
+
+
   return (
     <div
       className="flex w-full items-start gap-4 py-8"
