@@ -1,6 +1,4 @@
 "use client";
-// context/CategoryProvider.js
-"use client";
 
 import { createContext, useState } from "react";
 

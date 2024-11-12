@@ -12,11 +12,10 @@ useEffect(() => {
   changeCategory(categories[0].$id);
 }, [categories, changeCategory]); 
 
-
   return (
     <div
       className="flex w-full items-start gap-4 py-8"
-      style={{ height: "100vh" }}
+      style={{ height: "100px" }}
     >
       <div className="flex flex-row justify-start gap-5 ">
         {categories?.map((cat: any) => (
